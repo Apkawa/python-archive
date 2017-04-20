@@ -3,7 +3,7 @@ import sys
 import tarfile
 import zipfile
 
-from archive.compat import IS_PY2, is_string
+from .compat import IS_PY2, is_string
 
 
 class ArchiveException(Exception):
