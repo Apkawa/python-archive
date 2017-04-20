@@ -8,10 +8,12 @@ from archive.compat import IS_PY2, is_string
 
 class ArchiveException(Exception):
     """Base exception class for all archive errors."""
+    pass
 
 
 class UnrecognizedArchiveFormat(ArchiveException):
     """Error raised when passed file is not a recognized archive format."""
+    pass
 
 
 class UnsafeArchive(ArchiveException):
@@ -19,6 +21,7 @@ class UnsafeArchive(ArchiveException):
     Error raised when passed file contains paths that would be extracted
     outside of the target directory.
     """
+    pass
 
 
 def extract(path, to_path='', ext='', **kwargs):
