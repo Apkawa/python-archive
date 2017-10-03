@@ -5,6 +5,9 @@ Changelog
 
 In Development
 ==============
+* Preserving file permissions when using zip files.
+* Update tox.ini to not use a specific pypi index server. Removed support
+  for Python 2.6.
 * Allow for stripping/removing comments (needed by certain tools which
   bundle python-archive)
 * Use relative import to allow module relocation.

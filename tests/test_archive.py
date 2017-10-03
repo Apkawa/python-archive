@@ -190,3 +190,21 @@ class TestOutsideRelative(UnsafeArchiveTester, unittest.TestCase):
 class TestOutsideAbsolute(UnsafeArchiveTester, unittest.TestCase):
     """An archive that goes outside the destination using absolute paths."""
     archive = pathjoin('bad', 'absolute.tar.gz')
+
+class PerserveFilePermissionsTests(TempDirMixin, unittest.TestCase):
+    """
+    The zipfile module in Pyhton does not perserve file permissions. See
+    burgundywall.com/post/preserving-file-perms-with-python-zipfile-module
+    """
+    def setUp(self):
+        super(PerserveFilePermissionsTests, self).setUp()
+        self.archive_path = pathjoin(TEST_DIR, 'files', 'hello_world.zip')
+
+    def test_extract_function(self):
+        extract(self.archive_path, self.tmpdir)
+        print(os.listdir(self.tmpdir))
+
+        filepath = pathjoin(self.tmpdir, 'hello_world')
+
+        self.assertTrue(isfile(filepath))
+        self.assertTrue(os.access(filepath, os.X_OK))

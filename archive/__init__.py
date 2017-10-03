@@ -160,6 +160,24 @@ class ZipArchive(BaseArchive):
     def filenames(self):
         return self._archive.namelist()
 
+    def _extract_file(self, info, to_path):
+        out_path = self._archive.extract(info.filename, path=to_path)
+
+        permissions = info.external_attr >> 16
+        os.chmod(out_path, permissions)
+
+    def _extract(self, to_path):
+        """
+        Overrides the BaseArchive _extract method. For zip files we need
+        to take special care to perserve file permissions:
+
+        burgundywall.com/post/preserving-file-perms-with-python-zipfile-module
+
+        """
+        for info in self._archive.infolist():
+            self._extract_file(info=info, to_path=to_path)
+
+
 extension_map = {
     '.docx': ZipArchive,
     '.egg': ZipArchive,
