@@ -5,6 +5,9 @@ Changelog
 
 In Development
 ==============
+* Allow for stripping/removing comments (needed by certain tools which
+  bundle python-archive)
+* Use relative import to allow module relocation.
 * Moved tests outside of the archive package directory.
 
 
