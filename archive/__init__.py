@@ -164,7 +164,11 @@ class ZipArchive(BaseArchive):
         out_path = self._archive.extract(info.filename, path=to_path)
 
         permissions = info.external_attr >> 16
-        os.chmod(out_path, permissions)
+
+        # If no specific file permissions are specified we use the
+        # default used by Python when creating the files.
+        if permissions:
+            os.chmod(out_path, permissions)
 
     def _extract(self, to_path):
         """

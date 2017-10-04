@@ -198,13 +198,13 @@ class PerserveFilePermissionsTests(TempDirMixin, unittest.TestCase):
     """
     def setUp(self):
         super(PerserveFilePermissionsTests, self).setUp()
-        self.archive_path = pathjoin(TEST_DIR, 'files', 'hello_world.zip')
 
     def test_extract_function(self):
-        extract(self.archive_path, self.tmpdir)
-        print(os.listdir(self.tmpdir))
 
-        filepath = pathjoin(self.tmpdir, 'hello_world')
+        endianzip = pathjoin(TEST_DIR, 'files', 'endian-4.0.0.zip')
+
+        extract(endianzip, self.tmpdir)
+        filepath = pathjoin(self.tmpdir, 'endian-4.0.0', 'waf')
 
         self.assertTrue(isfile(filepath))
         self.assertTrue(os.access(filepath, os.X_OK))
