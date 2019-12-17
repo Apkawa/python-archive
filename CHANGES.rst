@@ -12,7 +12,8 @@ In Development
   bundle python-archive)
 * Use relative import to allow module relocation.
 * Moved tests outside of the archive package directory.
-
+* Added Travis-CI
+* Added Codecov
 
 Version 0.2 - 2012-07-12
 ========================

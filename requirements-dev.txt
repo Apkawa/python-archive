@@ -1,0 +1,10 @@
+-e .
+pytest-flake8==1.0.4
+pytest-cov==2.8.1
+flake8
+tox
+
+# Publish
+twine
+bumpversion
+setuptools>=42

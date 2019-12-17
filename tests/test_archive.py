@@ -5,9 +5,8 @@ import tempfile
 import unittest
 from os.path import isfile, join as pathjoin
 
-from archive.compat import IS_PY2
 from archive import Archive, extract, UnsafeArchive, UnrecognizedArchiveFormat
-
+from archive.compat import IS_PY2
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -101,6 +100,7 @@ class ArchiveTester(TempDirMixin):
     def test_extract_function_bad_fileobject(self):
         class File:
             pass
+
         f = File()
         self.assertRaises(UnrecognizedArchiveFormat, extract,
                           (f, self.tmpdir), {'ext': self.ext})
@@ -132,7 +132,7 @@ class TestNonAsciiNamedTar(ArchiveTester, unittest.TestCase):
 
 
 if IS_PY2:
-    _UNICODE_NAME = unicode('圧縮.zip', 'utf-8')
+    _UNICODE_NAME = u'圧縮.zip'
 else:
     _UNICODE_NAME = '圧縮.zip'
 
@@ -191,16 +191,17 @@ class TestOutsideAbsolute(UnsafeArchiveTester, unittest.TestCase):
     """An archive that goes outside the destination using absolute paths."""
     archive = pathjoin('bad', 'absolute.tar.gz')
 
+
 class PerserveFilePermissionsTests(TempDirMixin, unittest.TestCase):
     """
     The zipfile module in Pyhton does not perserve file permissions. See
     burgundywall.com/post/preserving-file-perms-with-python-zipfile-module
     """
+
     def setUp(self):
         super(PerserveFilePermissionsTests, self).setUp()
 
     def test_extract_function(self):
-
         endianzip = pathjoin(TEST_DIR, 'files', 'endian-4.0.0.zip')
 
         extract(endianzip, self.tmpdir)

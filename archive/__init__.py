@@ -1,9 +1,10 @@
 import os
-import sys
 import tarfile
 import zipfile
 
-from .compat import IS_PY2, is_string
+from .compat import is_string
+
+__version__ = '0.3.0'
 
 
 class ArchiveException(Exception):
@@ -84,6 +85,7 @@ class BaseArchive(object):
     """
     Base Archive class.  Implementations should inherit this class.
     """
+
     def __del__(self):
         if hasattr(self, "_archive"):
             self._archive.close()

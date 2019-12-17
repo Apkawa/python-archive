@@ -1,6 +1,11 @@
+
+|PyPi| |Build Status| |Codecov| |Requirements Status| |PyUP| |Python Versions| |License|
+
+
 ==============
 python-archive
 ==============
+
 
 This package provides a simple, pure-Python interface for handling various
 archive file formats.  Currently, archive extraction is the only supported
@@ -10,8 +15,7 @@ action.  Supported file formats include:
 * Tar and compressed tar formats: ``.tar``, ``.tar.gz``, ``.tgz``,
   ``.tar.bz2``, ``.tz2``.
 
-python-archive is compatible and tested with Python versions 2.5, 2.6,
-and 3.2.
+python-archive is compatible and tested with Python versions 2.7, >=3.5
 
 
 Example usage
@@ -63,3 +67,18 @@ Similar tools
   manager.
 * http://pypi.python.org/pypi/gocept.download/ - zc.buildout recipe for
   downloading and extracting an archive.
+
+.. |PyPi| image:: https://img.shields.io/pypi/v/python-archive.svg
+   :target: https://pypi.python.org/pypi/python-archive
+.. |Build Status| image:: https://travis-ci.org/Apkawa/python-archive.svg?branch=master
+   :target: https://travis-ci.org/Apkawa/python-archive
+.. |Codecov| image:: https://codecov.io/gh/Apkawa/python-archive/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/Apkawa/python-archive
+.. |Requirements Status| image:: https://requires.io/github/Apkawa/python-archive/requirements.svg?branch=master
+   :target: https://requires.io/github/Apkawa/python-archive/requirements/?branch=master
+.. |PyUP| image:: https://pyup.io/repos/github/Apkawa/python-archive/shield.svg
+   :target: https://pyup.io/repos/github/Apkawa/python-archive
+.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/python-archive.svg
+   :target: https://pypi.python.org/pypi/python-archive
+.. |License| image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: LICENSE
